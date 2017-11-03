@@ -26,6 +26,6 @@ before_script:
   - lerna updated --json
 script:
   - lerna run test --since master
-  - lerna publish -m "bump versions [ci skip]" --conventional-commits --yes --cd-version 'patch'
+  - lerna publish --conventional-commits --yes --cd-version=prerelease
 after_script:
   - git push
