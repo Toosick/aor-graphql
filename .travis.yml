@@ -1,9 +1,5 @@
 language: node_js
 
-branches:
-    except:
-        - /^v[0-9]/
-
 node_js:
     - "8.0.0"
 
@@ -32,6 +28,4 @@ before_script:
   - git checkout master
   - lerna updated --json
 script:
-  - lerna publish -m "bump versions [ci skip]" --conventional-commits --yes --cd-version=patch --force-publish=*
-after_script:
-  - git push
+  - lerna publish -m "%s [ci skip]" --conventional-commits --yes --cd-version=patch --force-publish=*
