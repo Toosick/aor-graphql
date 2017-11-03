@@ -1,6 +1,6 @@
 {
   "name": "@iolap/aor-graphql-client",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "A GraphQL client for admin-on-rest",
   "main": "./lib/index.js",
   "repository": "https://github.com/iolap/aor-graphql.git",
