@@ -26,6 +26,6 @@ before_script:
   - lerna updated --json
 script:
   - lerna run test --since master
-  - lerna publish --conventional-commits --yes --cd-version=prerelease
+  - lerna publish --conventional-commits --yes --cd-version=patch
 after_script:
   - git push
