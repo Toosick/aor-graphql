@@ -52,5 +52,8 @@
   },
   "peerDependencies": {
     "aor-graphql-client": "^0.0.1-1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
