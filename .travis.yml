@@ -28,6 +28,6 @@ before_script:
   - git checkout master
   - lerna updated --json
 script:
-  - lerna publish --conventional-commits --yes --cd-version=patch
+  - lerna publish --conventional-commits --yes --cd-version=patch --force-publish=*
 after_script:
   - git push
