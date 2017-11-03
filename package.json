@@ -3,7 +3,6 @@
   "description": "Packages related to using GraphQL with Admin-on-rest",
   "version": "0.0.1",
   "scripts": {
-    "test": "make test"
   },
   "devDependencies": {
     "@types/jest": "^19.2.4",
