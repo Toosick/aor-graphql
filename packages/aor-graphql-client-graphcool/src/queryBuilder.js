@@ -9,7 +9,7 @@ import {
     UPDATE,
     DELETE,
     QUERY_TYPES,
-} from 'aor-graphql-client/lib/constants';
+} from '@iolap/aor-graphql-client/lib/constants';
 import { encodeQuery, encodeMutation } from './graphqlify';
 /**
  * Ensure we get the real type even if the root type is NON_NULL or LIST

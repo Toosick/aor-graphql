@@ -1,4 +1,4 @@
-import { GET_LIST, GET_MANY, GET_MANY_REFERENCE, DELETE, QUERY_TYPES } from 'aor-graphql-client/lib/constants';
+import { GET_LIST, GET_MANY, GET_MANY_REFERENCE, DELETE, QUERY_TYPES } from '@iolap/aor-graphql-client/lib/constants';
 import { TypeKind } from 'graphql';
 
 import { encodeQuery, encodeMutation } from './graphqlify';

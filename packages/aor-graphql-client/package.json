@@ -3,7 +3,7 @@
   "version": "0.0.1-1",
   "description": "A GraphQL client for admin-on-rest",
   "main": "./lib/index.js",
-  "repository": "https://github.com/marmelab/aor-graphql-client.git",
+  "repository": "https://github.com/iolap/aor-graphql.git",
   "authors": [
     "Gildas Garcia"
   ],

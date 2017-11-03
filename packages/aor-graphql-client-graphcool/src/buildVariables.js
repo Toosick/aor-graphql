@@ -6,7 +6,7 @@ import {
     GET_MANY_REFERENCE,
     UPDATE,
     DELETE,
-} from 'aor-graphql-client/lib/constants';
+} from '@iolap/aor-graphql-client/lib/constants';
 
 const buildGetListVariables = introspectionResults => (resource, aorFetchType, params) => {
     const filter = Object.keys(params.filter).reduce((acc, key) => {

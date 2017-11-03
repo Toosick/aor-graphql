@@ -1,5 +1,5 @@
 import merge from 'lodash.merge';
-import buildClient from 'aor-graphql-client';
+import buildClient from '@iolap/aor-graphql-client';
 import buildQuery from './buildQuery';
 
 const defaultOptions = {

@@ -1,6 +1,6 @@
 import { TypeKind } from 'graphql';
 import buildGqlQuery, { buildApolloArgs, buildArgs, buildFields, getArgType } from './buildGqlQuery';
-import { GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, DELETE, UPDATE } from 'aor-graphql-client/lib/constants';
+import { GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, DELETE, UPDATE } from '@iolap/aor-graphql-client/lib/constants';
 
 describe('getArgType', () => {
     it('returns the arg type name', () => {
