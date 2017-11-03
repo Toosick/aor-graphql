@@ -20,3 +20,12 @@ before_install:
 install:
     - yarn
     - make --silent install
+
+before_script:
+  - git checkout master
+  - lerna updated --json
+script:
+  - lerna run test --since master #This always runs all packages even if only one was changed
+  - lerna publish -m "bump versions [ci skip]" --conventional-commits --yes
+after_script:
+  - git push

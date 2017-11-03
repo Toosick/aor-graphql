@@ -6,7 +6,7 @@ help:
 install: ## Install dependencies
 	@yarn
 	@./node_modules/.bin/lerna bootstrap
-	@./node_modules/.bin/lerna publish
+	@./node_modules/.bin/lerna publish --cd-version $VERSION --yes --force-publish=*
 
 test: ## Launch unit tests
 	./node_modules/.bin/jest --projects packages/aor-graphql-client packages/aor-graphql-client-graphcool
