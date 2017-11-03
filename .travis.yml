@@ -16,7 +16,7 @@ cache:
 
 before_install:
     - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-    - git config --global github.token $GITHUB_TOKEN
+    - git config --global github.token "$GITHUB_TOKEN"
     - npm install -g yarn
 
 install:
