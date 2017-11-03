@@ -15,6 +15,7 @@ cache:
         - node_modules
 
 before_install:
+    - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
     - npm install -g yarn
 
 install:
