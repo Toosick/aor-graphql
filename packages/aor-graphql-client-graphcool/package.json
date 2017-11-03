@@ -1,5 +1,5 @@
 {
-  "name": "aor-graphql-client-graphcool",
+  "name": "@iolap/aor-graphql-client-graphcool",
   "version": "0.0.1-1",
   "description": "A Graphcool GraphQL client for admin-on-rest",
   "main": "./lib/index.js",
