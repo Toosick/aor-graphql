@@ -3,6 +3,8 @@ import { TypeKind } from 'graphql';
 
 import { encodeQuery, encodeMutation } from './graphqlify';
 import getFinalType from './getFinalType';
+import isList from './isList';
+import isRequired from './isRequired';
 
 export const buildFields = introspectionResults => fields =>
     fields.reduce((acc, field) => {
@@ -33,12 +35,13 @@ export const buildFields = introspectionResults => fields =>
         return acc;
     }, {});
 
-export const getArgType = arg => {
-    if (arg.type.kind === TypeKind.NON_NULL) {
-        return `${arg.type.ofType.name}!`;
-    }
 
-    return arg.type.name;
+export const getArgType = arg => {
+    const type = getFinalType(arg.type);
+    const required = isRequired(arg.type);
+    const list = isList(arg.type);
+
+    return `${list ? '[' : ''}${type.name}${list ? '!]' : ''}${required ? '!' : ''}`;
 };
 
 export const buildArgs = (query, variables) => {
@@ -62,10 +65,6 @@ export const buildApolloArgs = (query, variables) => {
     const validVariables = Object.keys(variables).filter(k => typeof variables[k] !== 'undefined');
 
     let args = query.args.filter(a => validVariables.includes(a.name)).reduce((acc, arg) => {
-        if (arg.name.endsWith('Ids')) {
-            return { ...acc, [`$${arg.name}`]: '[ID!]!' };
-        }
-
         return { ...acc, [`$${arg.name}`]: getArgType(arg) };
     }, {});
 
