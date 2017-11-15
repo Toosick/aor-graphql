@@ -21,11 +21,14 @@ export const buildFields = introspectionResults => fields =>
         const linkedResource = introspectionResults.resources.find(r => r.type.name === type.name);
 
         // Include all id & type fields from linkedResources
-        const fieldsMap = { fields: { id: {} } };
-        const hasType = linkedResource.type.fields.find(field => field.name === 'type');
-        if (hasType) {
-            fieldsMap.fields.type = {};
-        }
+        const fieldsMap = { fields: {} };
+        const alwaysOnFields = ['type', 'name', 'id'];
+        alwaysOnFields.forEach(field => {
+            const hasType = linkedResource.type.fields.find(field => field.name === field);
+            if (hasType) {
+                fieldsMap.fields[field] = {};
+            }
+        })
 
         if (linkedResource) {
             return { ...acc, [field.name]: fieldsMap };
