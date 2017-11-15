@@ -20,8 +20,15 @@ export const buildFields = introspectionResults => fields =>
 
         const linkedResource = introspectionResults.resources.find(r => r.type.name === type.name);
 
+        // Include all id & type fields from linkedResources
+        const fieldsMap = { fields: { id: {} } };
+        const hasType = linkedResource.type.fields.find(field => field.name === 'type');
+        if (hasType) {
+            fieldsMap.fields.type = {};
+        }
+
         if (linkedResource) {
-            return { ...acc, [field.name]: { fields: { id: {} } } };
+            return { ...acc, [field.name]: fieldsMap };
         }
 
         const linkedType = introspectionResults.types.find(t => t.name === type.name);
