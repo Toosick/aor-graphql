@@ -22,7 +22,7 @@ export const buildFields = introspectionResults => fields =>
 
         // Include all id & type fields from linkedResources
         const fieldsMap = { fields: {} };
-        const alwaysOnFields = ['type', 'name', 'id'];
+        const alwaysOnFields = ['type', 'name', 'id', 'email'];
         alwaysOnFields.forEach(alwaysOnField => {
             const hasField = linkedResource.type.fields.find(field => field.name === alwaysOnField);
             if (hasField) {
