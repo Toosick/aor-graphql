@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.0.17"></a>
+## [0.0.17](https://github.com/iolap/aor-graphql/compare/v0.0.16...v0.0.17) (2017-12-01)
+
+
+
+
+**Note:** Version bump only for package @iolap/aor-graphql-client-graphcool
+
 <a name="0.0.16"></a>
 ## [0.0.16](https://github.com/iolap/aor-graphql/compare/v0.0.14...v0.0.16) (2017-12-01)
 
