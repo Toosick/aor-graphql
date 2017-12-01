@@ -55,9 +55,9 @@ const buildGetListVariables = introspectionResults => (resource, aorFetchType, p
     }, {});
 
     return {
-        skip: parseInt((params.pagination.page - 1) * params.pagination.perPage),
-        first: parseInt(params.pagination.perPage),
-        orderBy: `${params.sort.field}_${params.sort.order}`,
+        skip: params.pagination ? parseInt((params.pagination.page - 1) * params.pagination.perPage) : undefined,
+        first: params.pagination ? parseInt(params.pagination.perPage) : undefined,
+        orderBy: params.sort ? `${params.sort.field}_${params.sort.order}` : 'createdAt_DESC',
         filter,
     };
 };
@@ -98,15 +98,15 @@ export default introspectionResults => (resource, aorFetchType, params, queryTyp
             return buildGetListVariables(introspectionResults)(resource, aorFetchType, params, queryType);
         }
         case GET_MANY:
-            return merge(buildGetListVariables(introspectionResults)(resource, aorFetchType, params, queryType), {
+            return buildGetListVariables(introspectionResults)(resource, aorFetchType, merge({}, params, {
                 filter: { id_in: params.ids },
-            });
+            }), queryType);
         case GET_MANY_REFERENCE: {
             const parts = params.target.split('.');
 
-            return merge(buildGetListVariables(introspectionResults)(resource, aorFetchType, params, queryType), {
+            return buildGetListVariables(introspectionResults)(resource, aorFetchType, merge({}, params, {
                 filter: { [parts[0]]: { id: params.id } },
-            });
+            }), queryType);
         }
         case GET_ONE:
             return {
