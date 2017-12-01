@@ -37,4 +37,4 @@ You should run both commands in separate terminals when playing with the source 
 `make watch-test`: will run the tests in watch mode.
 `make test`: will run the tests once.
 
-test test
+trigger
