@@ -6,7 +6,8 @@ import {
     GET_MANY_REFERENCE,
     UPDATE,
     DELETE,
-} from '@iolap/aor-graphql-client/lib/constants';
+} from 'aor-graphql-client/lib/constants';
+import merge from 'lodash.merge';
 
 const buildGetListVariables = introspectionResults => (resource, aorFetchType, params) => {
     const filter = Object.keys(params.filter).reduce((acc, key) => {
@@ -97,15 +98,15 @@ export default introspectionResults => (resource, aorFetchType, params, queryTyp
             return buildGetListVariables(introspectionResults)(resource, aorFetchType, params, queryType);
         }
         case GET_MANY:
-            return {
+            return merge(buildGetListVariables(introspectionResults)(resource, aorFetchType, params, queryType), {
                 filter: { id_in: params.ids },
-            };
+            });
         case GET_MANY_REFERENCE: {
             const parts = params.target.split('.');
 
-            return {
+            return merge(buildGetListVariables(introspectionResults)(resource, aorFetchType, params, queryType), {
                 filter: { [parts[0]]: { id: params.id } },
-            };
+            });
         }
         case GET_ONE:
             return {

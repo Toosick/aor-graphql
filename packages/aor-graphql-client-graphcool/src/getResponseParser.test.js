@@ -1,6 +1,6 @@
 import { TypeKind } from 'graphql';
 import getResponseParser from './getResponseParser';
-import { CREATE, DELETE, GET_LIST, GET_MANY, GET_MANY_REFERENCE, UPDATE } from '@iolap/aor-graphql-client/lib/constants';
+import { CREATE, DELETE, GET_LIST, GET_MANY, GET_MANY_REFERENCE, UPDATE } from 'aor-graphql-client/lib/constants';
 
 const testListTypes = type => {
     it('returns the response expected by AOR for GET_LIST', () => {

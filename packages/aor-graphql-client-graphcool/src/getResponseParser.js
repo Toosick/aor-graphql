@@ -1,6 +1,6 @@
 import { TypeKind } from 'graphql';
 import getFinalType from './getFinalType';
-import { GET_LIST, GET_MANY, GET_MANY_REFERENCE } from '@iolap/aor-graphql-client/lib/constants';
+import { GET_LIST, GET_MANY, GET_MANY_REFERENCE } from 'aor-graphql-client/lib/constants';
 
 const sanitizeResource = (introspectionResults, resource) => data => {
     const result = Object.keys(data).reduce((acc, key) => {

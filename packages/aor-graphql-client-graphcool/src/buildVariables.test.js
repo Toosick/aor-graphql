@@ -6,7 +6,7 @@ import {
     GET_MANY_REFERENCE,
     UPDATE,
     DELETE,
-} from '@iolap/aor-graphql-client/lib/constants';
+} from 'aor-graphql-client/lib/constants';
 import buildVariables from './buildVariables';
 
 describe('buildVariables', () => {
